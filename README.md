@@ -10,7 +10,10 @@ git clone https://github.com/fork.git...
 ### 3 installer les dépendances
 ```sh
 composer install
+composer require vlucas/phpdotenv
+composer require --dev symfony/var-dumper
 ```
+
 ### 4 editer le fichier .env :
 ```env
 # avec vos valeurs
