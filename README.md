@@ -12,4 +12,8 @@ git clone https://github.com/fork.git...
 composer install
 ```
 
+### 4 démarrer le serveur php
+```sh
+php -S 127.0.0.1:8000 -t public
+```
 
