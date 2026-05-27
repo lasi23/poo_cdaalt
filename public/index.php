@@ -25,8 +25,8 @@ switch ($path) {
     case '/category/new':
         $categoryController->createCategory();
         break;
-    case '/login':
-        echo "bienvenue sur la page de login";
+    case '/categories':
+        $categoryController->showAllCategories();
         break;
     default:
         http_response_code(404);

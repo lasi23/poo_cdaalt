@@ -43,4 +43,17 @@ class CategoryService
     }
 
     //Retourner la liste des categories
+    public function findAllCategories(): array|string 
+    {
+        //1 récupérer la liste des categories
+        $categories = $this->categoryRepository->findAll();
+
+        //2 tester si la liste est vide
+        if (empty($categories)) {
+            return "La liste est vide";
+        }
+
+        //3 retourner la liste des categories (tableau)
+        return $categories;
+    }
 }

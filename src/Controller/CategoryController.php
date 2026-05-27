@@ -17,4 +17,11 @@ class CategoryController extends AbstractController
 
         $this->render("add_category", "Ajouter category", $data);
     }
+
+    public function showAllCategories() 
+    {
+        $data["msg"] = $this->categoryService->findAllCategories();
+
+        $this->render("show_all_categories", "Liste categories", $data);
+    }
 }
