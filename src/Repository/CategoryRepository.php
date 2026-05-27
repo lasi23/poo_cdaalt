@@ -33,7 +33,7 @@ class CategoryRepository extends AbstractRepository
         return $category;
     }
 
-    public function findByName(string $name): bool 
+    public function existsByName(string $name): bool 
     {
         try {
             //1 Ecrire la requête SQL
@@ -57,4 +57,41 @@ class CategoryRepository extends AbstractRepository
     }
 
     //Méthode findAll qui va retourner un tableau avec toutes les categories
+    public function findAll(): array 
+    {
+        try {
+            //1 Ecrire la requête
+            $sql = "SELECT c.id, c.`name` FROM category AS c";
+            //2 Préparer la requête
+            $req = $this->bdd->prepare($sql);
+            //3 Exécuter la requête
+            $req->execute();
+            //4 FetchAll le résultat
+            $categories = $req->fetchAll(\PDO::FETCH_ASSOC);
+            //5 Retourner le résultat
+        } catch(\PDOException $e) {
+            echo "Erreur : " . $e->getMessage();
+        }
+        return $categories ?? [];
+    }
+
+        //Méthode findAll qui va retourner un tableau avec toutes les categories
+    public function findAllV2(): array 
+    {
+        try {
+            //1 Ecrire la requête
+            $sql = "SELECT c.id, c.`name` FROM category AS c";
+            //2 Préparer la requête
+            $req = $this->bdd->prepare($sql);
+            //3 Exécuter la requête
+            $req->execute();
+            //4 FetchAll le résultat
+            $req->setFetchMode(\PDO::FETCH_CLASS, Category::class);
+            $categories = $req->fetchAll();
+            //5 Retourner le résultat
+        } catch(\PDOException $e) {
+            echo "Erreur : " . $e->getMessage();
+        }
+        return $categories ?? [];
+    }
 }

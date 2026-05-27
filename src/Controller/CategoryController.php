@@ -1,0 +1,20 @@
+<?php
+
+namespace App\Controller;
+
+use App\Controller\AbstractController;
+
+class CategoryController extends AbstractController
+{
+    public function createCategory()
+    {
+        $data = [];
+        
+        //test si le formulaire est soumis
+        if (isset($_POST["submit"])) {
+            $data["msg"] = $this->categoryService->addCategory($_POST);
+        }
+
+        $this->render("add_category", "Ajouter category", $data);
+    }
+}

@@ -9,7 +9,7 @@ class Category
     private string $name;
 
     //Constructor (valeur obligatoire)
-    public function __construct(string $name)
+    public function __construct(?string $name = null)
     {
         $this->name = $name;
     }
