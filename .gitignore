@@ -1,0 +1,10 @@
+*.env
+vendor/
+*.jpeg
+*.jpg
+*.png
+*.gif
+*.svg
+*.ico
+*.pdf
+!favicon.ico
