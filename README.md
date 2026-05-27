@@ -11,9 +11,16 @@ git clone https://github.com/fork.git...
 ```sh
 composer install
 ```
+### 4 editer le fichier .env :
+```env
+# avec vos valeurs
+DATABASE_HOST=localhost
+DATABASE_NAME=links
+DATABASE_USERNAME=
+DATABASE_PASSWORD=
+```
 
-### 4 démarrer le serveur php
+### 5 démarrer le serveur php
 ```sh
 php -S 127.0.0.1:8000 -t public
 ```
-
